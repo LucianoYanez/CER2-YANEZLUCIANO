@@ -1,0 +1,15 @@
+# Entorno virtual (para no subir gigabytes de librerias)
+env/
+.venv/
+
+# Archivos temporales de Python
+__pycache__/
+*.py[cod]
+
+# Base de datos local (se genera en cada maquina con las migraciones)
+*.sqlite3
+
+# Carpetas del editor y del sistema
+.vscode/
+.idea/
+.DS_Store
