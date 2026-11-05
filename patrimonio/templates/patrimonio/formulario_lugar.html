@@ -1,0 +1,90 @@
+{% extends 'patrimonio/base.html' %}
+
+{% block title %}{{ accion }} | Patrimonio Vivo{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card border-0 shadow-sm rounded-4 p-4">
+                <div class="card-body">
+                    <h3 class="fw-bold mb-3">{{ accion }}</h3>
+                    <p class="text-muted mb-4">Completa todos los campos requeridos para el catálogo patrimonial.</p>
+
+                    <form method="post" novalidate>
+                        {% csrf_token %}
+
+                        {% if form.non_field_errors %}
+                            <div class="alert alert-danger">
+                                {% for error in form.non_field_errors %}
+                                    {{ error }}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+
+                        <div class="mb-3">
+                            <label for="{{ form.nombre.id_for_label }}" class="form-label fw-bold">Nombre del Lugar</label>
+                            {{ form.nombre }}
+                            {% if form.nombre.errors %}
+                                <div class="text-danger small mt-1">{{ form.nombre.errors.0 }}</div>
+                            {% endif %}
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="{{ form.categoria.id_for_label }}" class="form-label fw-bold">Categoría</label>
+                                {{ form.categoria }}
+                                {% if form.categoria.errors %}
+                                    <div class="text-danger small mt-1">{{ form.categoria.errors.0 }}</div>
+                                {% endif %}
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label for="{{ form.anio_construccion.id_for_label }}" class="form-label fw-bold">Año de Construcción</label>
+                                {{ form.anio_construccion }}
+                                {% if form.anio_construccion.errors %}
+                                    <div class="text-danger small mt-1">{{ form.anio_construccion.errors.0 }}</div>
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="{{ form.ubicacion.id_for_label }}" class="form-label fw-bold">Ubicación (Ciudad / Comuna)</label>
+                            {{ form.ubicacion }}
+                            {% if form.ubicacion.errors %}
+                                <div class="text-danger small mt-1">{{ form.ubicacion.errors.0 }}</div>
+                            {% endif %}
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="{{ form.imagen.id_for_label }}" class="form-label fw-bold">URL de la Imagen</label>
+                            {{ form.imagen }}
+                            <small class="text-muted">Enlace directo a una imagen pública en internet (JPG o PNG).</small>
+                            {% if form.imagen.errors %}
+                                <div class="text-danger small mt-1">{{ form.imagen.errors.0 }}</div>
+                            {% endif %}
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="{{ form.descripcion.id_for_label }}" class="form-label fw-bold">Descripción e Historia</label>
+                            {{ form.descripcion }}
+                            {% if form.descripcion.errors %}
+                                <div class="text-danger small mt-1">{{ form.descripcion.errors.0 }}</div>
+                            {% endif %}
+                        </div>
+
+                        <div class="d-flex justify-content-between pt-3 border-top">
+                            <a href="{% url 'gestion_lugares' %}" class="btn btn-outline-secondary">
+                                <i class="bi bi-x-circle"></i> Cancelar
+                            </a>
+                            <button type="submit" class="btn btn-primary fw-bold px-4">
+                                <i class="bi bi-check-circle"></i> Guardar Lugar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

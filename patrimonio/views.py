@@ -1,5 +1,10 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Categoria, LugarPatrimonial
+from django.contrib.auth.decorators import login_required, permission_required
+from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib import messages
+from .models import Categoria, LugarPatrimonial
+from .forms import LugarPatrimonialForm
 
 # Create your views here.
 def inicio(request):
@@ -45,3 +50,52 @@ def lista_categorias(request):
         'categorias': categorias,
     }
     return render(request, 'patrimonio/categorias.html', contexto)
+
+@login_required
+def gestion_lugares(request):
+    #Gestión de lugares patrimoniales para usuarios autenticados
+    lugares = LugarPatrimonial.objects.select_related('categoria').all()
+    contexto = {
+        'lugares': lugares,
+    }
+    return render(request, 'patrimonio/gestion.html', contexto)
+
+@login_required
+@permission_required('patrimonio.add_lugarpatrimonial', raise_exception=True)
+def crear_lugar(request):
+    #Crear un nuevo lugar patrimonial
+    if request.method == 'POST':
+        form = LugarPatrimonialForm(request.POST)
+        if form.is_valid():
+            lugar = form.save()
+            messages.success(request, f'Lugar patrimonial "{lugar.nombre}" registrado exitosamente.')
+            return redirect('gestion_lugares')
+    else:
+        form = LugarPatrimonialForm()
+
+    contexto = {
+        'form': form,
+        'accion': 'Registrar nuevo lugar patrimonial',
+    }
+    return render(request, 'patrimonio/formulario_lugar.html', contexto)
+
+@login_required
+@permission_required('patrimonio.change_lugarpatrimonial', raise_exception=True)
+def editar_lugar(request, pk):
+    #Editar un lugar patrimonial existente
+    lugar = get_object_or_404(LugarPatrimonial, pk=pk)
+    if request.method == 'POST':
+        form = LugarPatrimonialForm(request.POST, instance=lugar)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f'Lugar patrimonial "{lugar.nombre}" actualizado exitosamente.')
+            return redirect('gestion_lugares')
+    else:
+        form = LugarPatrimonialForm(instance=lugar)
+
+    contexto = {
+        'form': form,
+        'accion': f'Modificar lugar patrimonial: {lugar.nombre}',
+        'lugar': lugar,
+    }
+    return render(request, 'patrimonio/formulario_lugar.html', contexto)
