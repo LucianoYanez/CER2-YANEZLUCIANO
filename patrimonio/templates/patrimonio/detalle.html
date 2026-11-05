@@ -1,0 +1,51 @@
+{% extends 'patrimonio/base.html' %}
+
+{% block title %}{{ lugar.nombre }} | Patrimonio Vivo{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <nav aria-label="breadcrumb" class="mb-4">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'inicio' %}" class="text-decoration-none">Inicio</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'catalogo' %}" class="text-decoration-none">Catálogo</a></li>
+            <li class="breadcrumb-item active">{{ lugar.nombre }}</li>
+        </ol>
+    </nav>
+
+    <div class="card detalle-card shadow-sm">
+        <div class="row g-0">
+            <div class="col-lg-6">
+                <img src="{{ lugar.imagen }}" class="detalle-img" alt="{{ lugar.nombre }}">
+            </div>
+            <div class="col-lg-6 p-4 p-md-5 d-flex flex-column justify-content-between">
+                <div>
+                    <span class="badge bg-primary mb-2 fs-6">{{ lugar.categoria.nombre }}</span>
+                    <h1 class="fw-bold mb-3">{{ lugar.nombre }}</h1>
+                    
+                    <ul class="list-unstyled mb-4">
+                        <li class="mb-2">
+                            <i class="bi bi-geo-alt-fill text-danger fs-5 me-2"></i>
+                            <strong>Ubicación:</strong> {{ lugar.ubicacion }}
+                        </li>
+                        <li class="mb-2">
+                            <i class="bi bi-calendar-event text-primary fs-5 me-2"></i>
+                            <strong>Año de Construcción:</strong> {{ lugar.anio_construccion }}
+                        </li>
+                    </ul>
+
+                    <h5 class="fw-bold text-dark">Historia y Descripción</h5>
+                    <p class="text-secondary">
+                        {{ lugar.descripcion }}
+                    </p>
+                </div>
+
+                <div class="pt-4 border-top d-flex gap-2">
+                    <a href="{% url 'catalogo' %}" class="btn btn-secondary">
+                        <i class="bi bi-arrow-left"></i> Volver al Catálogo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

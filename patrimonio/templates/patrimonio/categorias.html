@@ -1,0 +1,37 @@
+{% extends 'patrimonio/base.html' %}
+
+{% block title %}Categorías Patrimoniales | Patrimonio Vivo{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="text-center mb-5">
+        <h2 class="fw-bold">Categorías de Patrimonio</h2>
+        <p class="text-muted col-lg-6 mx-auto">
+            Conoce cómo clasificamos los bienes y espacios de valor cultural e histórico según su naturaleza.
+        </p>
+    </div>
+
+    <div class="row g-4">
+        {% for cat in categorias %}
+            <div class="col-md-6">
+                <div class="card border-0 shadow-sm h-100 rounded-3 p-4">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-primary text-white categoria-icon-box me-3">
+                                <i class="bi bi-bookmark-star"></i>
+                            </div>
+                            <h4 class="fw-bold mb-0">{{ cat.nombre }}</h4>
+                        </div>
+                        <p class="text-secondary">{{ cat.descripcion }}</p>
+                    </div>
+                    <div class="card-footer bg-transparent border-0 pt-0">
+                        <a href="{% url 'catalogo_categoria' cat.id %}" class="btn btn-outline-primary btn-sm">
+                            Ver lugares de esta categoría ({{ cat.lugares.count }}) &rarr;
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

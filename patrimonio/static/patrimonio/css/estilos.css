@@ -1,0 +1,93 @@
+/* ========================================================
+   ESTILOS GENERALES Y LAYOUT
+   ======================================================== */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #f8f9fa;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+footer {
+    margin-top: auto;
+}
+
+/* ========================================================
+   INICIO (HERO BANNER Y STATS)
+   ======================================================== */
+.hero-banner {
+    background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.75)), 
+                url('https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?w=1600&auto=format&fit=crop&q=80');
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    padding: 90px 0;
+}
+
+.stat-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* ========================================================
+   CATÁLOGO Y TARJETAS
+   ======================================================== */
+.card-patrimonio {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card-patrimonio:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12) !important;
+}
+
+.card-img-patrimonio {
+    height: 220px;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* ========================================================
+   VISTA DE DETALLE
+   ======================================================== */
+.detalle-card {
+    border: none;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.detalle-img {
+    width: 100%;
+    height: 100%;
+    min-height: 420px;
+    object-fit: cover;
+}
+
+/* ========================================================
+   CATEGORÍAS
+   ======================================================== */
+.categoria-icon-box {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+/* ========================================================
+   LOGIN
+   ======================================================== */
+.login-card {
+    max-width: 440px;
+    border: none;
+    border-radius: 14px;
+}

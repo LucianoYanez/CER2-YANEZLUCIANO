@@ -1,0 +1,41 @@
+{% extends 'patrimonio/base.html' %}
+
+{% block title %}Inicio | Fundación Patrimonio Vivo{% endblock %}
+
+{% block content %}
+<section class="hero-banner text-center">
+    <div class="container py-4">
+        <h1 class="display-4 fw-bold">Fundación Patrimonio Vivo</h1>
+        <p class="lead col-lg-8 mx-auto mt-3">
+            Identificamos, documentamos y difundimos los tesoros culturales, históricos y arquitectónicos de Chile.
+        </p>
+        <div class="mt-4 d-flex justify-content-center gap-3">
+            <a href="{% url 'catalogo' %}" class="btn btn-warning btn-lg px-4 fw-bold shadow">
+                <i class="bi bi-compass"></i> Explorar Catálogo
+            </a>
+            <a href="{% url 'lista_categorias' %}" class="btn btn-outline-light btn-lg px-4 shadow">
+                <i class="bi bi-tags"></i> Ver Categorías
+            </a>
+        </div>
+    </div>
+</section>
+
+<div class="container my-5">
+    <div class="row g-4 text-center">
+        <div class="col-md-6">
+            <div class="card border-0 shadow-sm p-4 h-100 bg-white rounded-3">
+                <div class="text-primary stat-icon"><i class="bi bi-building"></i></div>
+                <h3 class="fw-bold">{{ total_lugares }}</h3>
+                <p class="text-muted mb-0">Lugares Patrimoniales Documentados</p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card border-0 shadow-sm p-4 h-100 bg-white rounded-3">
+                <div class="text-warning stat-icon"><i class="bi bi-collection"></i></div>
+                <h3 class="fw-bold">{{ total_categorias }}</h3>
+                <p class="text-muted mb-0">Categorías de Patrimonio</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
