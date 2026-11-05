@@ -1,0 +1,106 @@
+[
+  {
+    "model": "patrimonio.categoria",
+    "pk": 1,
+    "fields": {
+      "nombre": "Monumentos Históricos",
+      "descripcion": "Edificaciones, ruinas y lugares de valor histórico, artístico o arquitectónico protegidos por la ley chilena."
+    }
+  },
+  {
+    "model": "patrimonio.categoria",
+    "pk": 2,
+    "fields": {
+      "nombre": "Zonas Típicas",
+      "descripcion": "Agrupaciones de bienes inmuebles urbanos o rurales que forman una unidad de asentamiento representativa."
+    }
+  },
+  {
+    "model": "patrimonio.categoria",
+    "pk": 3,
+    "fields": {
+      "nombre": "Murales y Arte Público",
+      "descripcion": "Obras artísticas emplazadas en espacios públicos de relevancia cultural e identitaria."
+    }
+  },
+  {
+    "model": "patrimonio.categoria",
+    "pk": 4,
+    "fields": {
+      "nombre": "Patrimonio Industrial",
+      "descripcion": "Instalaciones, maquinarias y poblados testimonio de actividades productivas que forjaron la historia del país."
+    }
+  },
+  {
+    "model": "patrimonio.lugarpatrimonial",
+    "pk": 1,
+    "fields": {
+      "nombre": "Palacio de La Moneda",
+      "descripcion": "Sede del presidente de la República de Chile. Diseñado por el arquitecto italiano Joaquín Toesca a fines del siglo XVIII en estilo neoclásico.",
+      "ubicacion": "Santiago, Región Metropolitana",
+      "anio_construccion": 1805,
+      "imagen": "https://images.unsplash.com/photo-1577717903315-1691ae25ab3f?w=800&auto=format&fit=crop&q=80",
+      "categoria": 1
+    }
+  },
+  {
+    "model": "patrimonio.lugarpatrimonial",
+    "pk": 2,
+    "fields": {
+      "nombre": "Ascensor El Peral",
+      "descripcion": "Uno de los ascensores más tradicionales de Valparaíso, conecta la Plaza de Justicia con el Paseo Yugoslavo en el cerro Alegre.",
+      "ubicacion": "Valparaíso, Región de Valparaíso",
+      "anio_construccion": 1902,
+      "imagen": "https://images.unsplash.com/photo-1589556264800-08ae9e129a8c?w=800&auto=format&fit=crop&q=80",
+      "categoria": 2
+    }
+  },
+  {
+    "model": "patrimonio.lugarpatrimonial",
+    "pk": 3,
+    "fields": {
+      "nombre": "Oficinas Salitreras Humberstone",
+      "descripcion": "Antigua oficina salitrera ubicada en la pampa del Tamarugal, declarada Patrimonio de la Humanidad por la UNESCO como símbolo de la era del oro blanco.",
+      "ubicacion": "Pozo Almonte, Región de Tarapacá",
+      "anio_construccion": 1872,
+      "imagen": "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800&auto=format&fit=crop&q=80",
+      "categoria": 4
+    }
+  },
+  {
+    "model": "patrimonio.lugarpatrimonial",
+    "pk": 4,
+    "fields": {
+      "nombre": "Campamento Minero Sewell",
+      "descripcion": "Ciudad de las escaleras construida en la cordillera de los Andes para los trabajadores de la mina El Teniente. Patrimonio de la Humanidad.",
+      "ubicacion": "Machalí, Región de O'Higgins",
+      "anio_construccion": 1905,
+      "imagen": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&auto=format&fit=crop&q=80",
+      "categoria": 4
+    }
+  },
+  {
+    "model": "patrimonio.lugarpatrimonial",
+    "pk": 5,
+    "fields": {
+      "nombre": "Mural Presencia de América Latina",
+      "descripcion": "Monumento Histórico creado por el artista mexicano Jorge González Camarena en la Casa del Arte de la Universidad de Concepción.",
+      "ubicacion": "Concepción, Región del Biobío",
+      "anio_construccion": 1965,
+      "imagen": "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=800&auto=format&fit=crop&q=80",
+      "categoria": 3
+    }
+  },
+  {
+    "model": "patrimonio.lugarpatrimonial",
+    "pk": 6,
+    "fields": {
+      "nombre": "Viaducto del Malleco",
+      "descripcion": "Impresionante puente ferroviario de acero considerado una de las obras de ingeniería más notables de su época en Sudamérica.",
+      "ubicacion": "Collipulli, Región de La Araucanía",
+      "anio_construccion": 1890,
+      "imagen": "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?w=800&auto=format&fit=crop&q=80",
+      "categoria": 1
+    }
+  }
+]
